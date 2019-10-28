@@ -133,41 +133,41 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
 
                     lblScore.setText("<html><h3>Jogador 1 : " + j1 + "<br>Jogador 2 : " + j2 + "</html>");
 
-//                    if ("R".equals(lado)) {
-//                        jogador.setIconRight();
-//                    } else {
-//                        jogador.setIconLeft();
-//                    }
-                    if (keyRight) {//move direita
+                    if ("R".equals(lado)) {
                         jogador.setIconRight();
-                        jogador.x += SPEED;
-                        lDir = true;
-                        lEsq = false;
-                    }
-
-                    if (keyLeft) {//move esquerda
+                    } else {
                         jogador.setIconLeft();
-                        jogador.x -= SPEED;
-                        lEsq = true;
-                        lDir = false;
                     }
-
-                    if (keyUp) {
-                        jogador.y -= SPEED;
-                    }
-
-                    if (keyDown) {
-                        jogador.y += SPEED;
-                    }
-
-                    if (!(keyDown || keyUp || keyLeft || keyRight)) {
-                        if (lDir) {
-                            jogador.setIconStoppedD();
-                        }
-                        if (lEsq) {
-                            jogador.setIconStoppedE();
-                        }
-                    }
+//                    if (keyRight) {//move direita
+//                        jogador.setIconRight();
+//                        jogador.x += SPEED;
+//                        lDir = true;
+//                        lEsq = false;
+//                    }
+//
+//                    if (keyLeft) {//move esquerda
+//                        jogador.setIconLeft();
+//                        jogador.x -= SPEED;
+//                        lEsq = true;
+//                        lDir = false;
+//                    }
+//
+//                    if (keyUp) {
+//                        jogador.y -= SPEED;
+//                    };
+//
+//                    if (keyDown) {
+//                        jogador.y += SPEED;
+//                    }
+//
+//                    if (!(keyDown || keyUp || keyLeft || keyRight)) {
+//                        if (lDir) {
+//                            jogador.setIconStoppedD();
+//                        }
+//                        if (lEsq) {
+//                            jogador.setIconStoppedE();
+//                        }
+//                    };
                     jogador.move();
 
                 } else {
@@ -178,11 +178,11 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
 
                     jogador.x = Integer.parseInt(data[1]);
                     jogador.y = Integer.parseInt(data[2]);
-//                    if ("R".equals(lado)) {
-//                        jogador.setIconRight();
-//                    } else {
-//                        jogador.setIconLeft();
-//                    }
+                    if ("R".equals(lado)) {
+                        jogador.setIconRight();
+                    } else {
+                        jogador.setIconLeft();
+                    }
                     jogador.move();
                 }
 
@@ -192,87 +192,87 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
             System.exit(1);
         }
     }
-//         private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-//        // TODO add your handling code here:
-//        if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
-//            out.println("PR_R");
-//            
-//        }
-//        if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
-//            out.println("PR_L");
-//            
-//        }
-//        if (evt.getKeyCode() == KeyEvent.VK_UP) {
-//            out.println("PR_U");
-//        }
-//        if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
-//            out.println("PR_D");
-//        }
-//        if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
-//            out.println("PUNCH");
-//        }
-//        
-//    }//GEN-LAST:event_formKeyPressed
-
-    //aplicando
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+         private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
-        switch (evt.getKeyCode()) {
-            case KeyEvent.VK_RIGHT:
-                keyRight = true;
-                break;
-            case KeyEvent.VK_LEFT:
-                keyLeft = true;
-                break;
-            case KeyEvent.VK_UP:
-                keyUp = true;
-                break;
-            case KeyEvent.VK_DOWN:
-                keyDown = true;
-                break;
+        if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
+            out.println("PR_R");
+            
         }
-
+        if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
+            out.println("PR_L");
+            
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_UP) {
+            out.println("PR_U");
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            out.println("PR_D");
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
+            out.println("PUNCH");
+        }
+        
     }//GEN-LAST:event_formKeyPressed
 
-//    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+    //aplicando
+//    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
 //        // TODO add your handling code here:
-//        if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
-//            key_r = false;
-//            out.println("RE_R");
+//        switch (evt.getKeyCode()) {
+//            case KeyEvent.VK_RIGHT:
+//                keyRight = true;
+//                break;
+//            case KeyEvent.VK_LEFT:
+//                keyLeft = true;
+//                break;
+//            case KeyEvent.VK_UP:
+//                keyUp = true;
+//                break;
+//            case KeyEvent.VK_DOWN:
+//                keyDown = true;
+//                break;
+//        }
 //
-//        }
-//        if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
-//            key_r = false;
-//            out.println("RE_L");
-//
-//        }
-//        if (evt.getKeyCode() == KeyEvent.VK_UP) {
-//            key_r = false;
-//            out.println("RE_U");
-//        }
-//        if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
-//            key_r = false;
-//            out.println("RE_D");
-//        }
-//    }//GEN-LAST:event_formKeyReleased
-// aplicando
+//    }//GEN-LAST:event_formKeyPressed
+
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
-        // TODO add your handling code here elias
-        switch (evt.getKeyCode()) {
-            case KeyEvent.VK_RIGHT:
-                keyRight = false;
-                break;
-            case KeyEvent.VK_LEFT:
-                keyLeft = false;
-                break;
-            case KeyEvent.VK_UP:
-                keyUp = false;
-                break;
-            case KeyEvent.VK_DOWN:
-                keyDown = false;
-                break;
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
+            key_r = false;
+            out.println("RE_R");
+
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
+            key_r = false;
+            out.println("RE_L");
+
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_UP) {
+            key_r = false;
+            out.println("RE_U");
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            key_r = false;
+            out.println("RE_D");
         }
     }//GEN-LAST:event_formKeyReleased
+// aplicando
+//    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased;
+//        // TODO add your handling code here elias
+//        switch (evt.getKeyCode()) {
+//            case KeyEvent.VK_RIGHT:
+//                keyRight = false;
+//                break;
+//            case KeyEvent.VK_LEFT:
+//                keyLeft = false;
+//                break;
+//            case KeyEvent.VK_UP:
+//                keyUp = false;
+//                break;
+//            case KeyEvent.VK_DOWN:
+//                keyDown = false;
+//                break;
+//        }
+//    }//GEN-LAST:event_formKeyReleased
 
     @Override
     public void paint(Graphics g) {
