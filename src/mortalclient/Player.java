@@ -25,8 +25,8 @@ public class Player extends JLabel {
        public void setup() {
         setText("12");
 
-//        stoppedD = new ImageIcon(new ImageIcon(getClass().getResource("p_d.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
-//        stoppedE = new ImageIcon(new ImageIcon(getClass().getResource("p_e.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
+       stoppedD = new ImageIcon(new ImageIcon(getClass().getResource("p_d.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
+        stoppedE = new ImageIcon(new ImageIcon(getClass().getResource("p_e.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
         walkR = new ImageIcon(new ImageIcon(getClass().getResource("c_d.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
         walkL = new ImageIcon(new ImageIcon(getClass().getResource("c_e.gif")).getImage().getScaledInstance(88, 127, Image.SCALE_DEFAULT));
 
@@ -35,33 +35,38 @@ public class Player extends JLabel {
     }
 
     public void move() {
+
+//
+//        System.out.println("******************************************");
+//        System.out.println(x);
+//        System.out.println(y);
         setBounds(x, y, 90, 127);
     }
-
-    public void setIconRight() {;
-        setIcon(walkR);
-    }
-
-    public void setIconLeft() {
-        setIcon(walkL);
-    }
-    
-    
-    //implementando
-//     public void setIconRight() {
+//
+//    public void setIconRight() {;
 //        setIcon(walkR);
 //    }
 //
 //    public void setIconLeft() {
 //        setIcon(walkL);
 //    }
-//
-//    public void setIconStoppedD() {
-//        setIcon(stoppedD);
-//    }
-//
-//    public void setIconStoppedE() {
-//        setIcon(stoppedE);
-//    }
+    
+    
+    //implementando
+     public void setIconRight() {
+        setIcon(walkR);
+    }
+
+    public void setIconLeft() {
+        setIcon(walkL);
+    }
+
+    public void setIconStoppedD() {
+        setIcon(stoppedD);
+    }
+
+    public void setIconStoppedE() {
+        setIcon(stoppedE);
+    }
 
 }
