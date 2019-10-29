@@ -29,6 +29,8 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
     Socket socketPlayer;
     BufferedReader in;
     PrintWriter out;
+    
+   
     boolean key_r = false;
 
     public MortalClient() {
@@ -139,10 +141,12 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
         }
     }
 
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed // Identificar a tecla precionada
 
         if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
             out.println("PR_R");
+            
+            //System.out.println("formKeyPressed");
         }
 
         if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -163,6 +167,8 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
         if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
             key_r = false;
             out.println("RE_R");
+            
+            System.out.println("formKeyPressed soltando botão");
         }
 
         if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
