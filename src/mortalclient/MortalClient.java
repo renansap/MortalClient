@@ -80,7 +80,7 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
         gameFlowThread.start();
     }
 
-    public void connect() {
+    public void connect() { // conexão com servidro
         try {
             socketPlayer = new Socket("localhost", 8880);
             in = new BufferedReader(new InputStreamReader(socketPlayer.getInputStream()));
@@ -95,6 +95,9 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
         try {
             while (true) {
                 command = in.readLine();
+                //2_194_82_false_90127
+                
+                System.out.println("ReadLine: " + command);
                 String data[] = command.split("\\_");
 
                 String id = data[0];
