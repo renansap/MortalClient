@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,11 +10,8 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -29,8 +26,7 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
     Socket socketPlayer;
     BufferedReader in;
     PrintWriter out;
-    
-   
+
     boolean key_r = false;
 
     public MortalClient() {
@@ -41,15 +37,18 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
         addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
             }
 
+            @Override
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 formKeyReleased(evt);
             }
@@ -59,11 +58,11 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 800, Short.MAX_VALUE)
+                        .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 600, Short.MAX_VALUE)
+                        .addGap(0, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -96,8 +95,8 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
             while (true) {
                 command = in.readLine();
                 //2_194_82_false_90127
-                
-                System.out.println("ReadLine: " + command);
+
+                // System.out.println("ReadLine: " + command);
                 String data[] = command.split("\\_");
 
                 String id = data[0];
@@ -112,11 +111,13 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
 
                     if (dir.equals("true")) {
                         p.setIconRight();
-                        //p.setIconStoppedD();
+
+                    }
+                    if (key_r = true) {
+                        p.setIconStoppedD();
                     } else {
                         p.setIconLeft();
                     }
-
                     p.setup();
                     p.move();
 
@@ -129,14 +130,15 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
                     p.y = Integer.parseInt(y);
 
                     if (dir.equals("true")) {
+                        if (key_r = true) {
+                        p.setIconStoppedD();
+                    }
                         p.setIconRight();
                     } else {
                         p.setIconLeft();
                     }
-
                     p.move();
                 }
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,29 +150,23 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
 
         if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
             out.println("PR_R");
-            
-            //System.out.println("formKeyPressed");
         }
-
         if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
             out.println("PR_L");
         }
-
         if (evt.getKeyCode() == KeyEvent.VK_UP) {
             out.println("PR_U");
         }
-
         if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
             out.println("PR_D");
         }
-
     }
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
             key_r = false;
             out.println("RE_R");
-            
+
             System.out.println("formKeyPressed soltando botão");
         }
 
@@ -219,6 +215,7 @@ public class MortalClient extends javax.swing.JFrame implements Runnable {
             java.util.logging.Logger.getLogger(MortalClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MortalClient().setVisible(true);
             }
